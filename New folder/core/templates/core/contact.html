@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Cricket Scorer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            display: flex;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            padding: 20px;
+            color: #333;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .contact-container {
+            max-width: 800px;
+            width: 100%;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-header {
+            background: linear-gradient(to right, #00416A, #0078D7);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+        }
+        
+        .contact-header h2 {
+            font-weight: 700;
+            font-size: 42px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            position: relative;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .contact-header p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .contact-content {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 50px;
+            width: 100%;
+        }
+        
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 300px;
+            padding: 30px;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0078D7, #00416A);
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon i {
+            font-size: 36px;
+            color: white;
+        }
+        
+        .contact-item h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #00416A;
+        }
+        
+        .contact-item p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        
+        .contact-item a {
+            color: #0078D7;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .contact-item a:hover {
+            color: #00416A;
+            text-decoration: underline;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 14px 30px;
+            background: linear-gradient(to right, #0078D7, #00416A);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 120, 215, 0.3);
+        }
+        
+        .back-button i {
+            margin-right: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 120, 215, 0.4);
+        }
+        
+        .back-button:hover i {
+            transform: translateX(-5px);
+        }
+        
+        .cricket-icon {
+            position: absolute;
+            opacity: 0.1;
+            font-size: 300px;
+            bottom: 20px;
+            right: 20px;
+            color: #00416A;
+            z-index: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-content {
+                padding: 30px 20px;
+            }
+            
+            .contact-info {
+                gap: 25px;
+            }
+            
+            .contact-header {
+                padding: 30px 15px;
+            }
+            
+            .contact-header h2 {
+                font-size: 32px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .contact-item {
+                min-width: 100%;
+            }
+            
+            .contact-header h2 {
+                font-size: 28px;
+            }
+            
+            .contact-header p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-container">
+        <div class="contact-header">
+            <h2>Contact Cricket Scorer</h2>
+            <p>Get in touch with our support team for any questions or assistance</p>
+        </div>
+        
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Support</h3>
+                    <p>We're here to help with any questions</p>
+                    <p><a href="mailto:support@cricketscorer.com">support@cricketscorer.com</a></p>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Phone Support</h3>
+                    <p>Call us during business hours</p>
+                    <p><a href="tel:+919999999999">+91-99999-99999</a></p>
+                </div>
+            </div>
+            
+            <a href="{% url 'home' %}" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+            
+            <div class="cricket-icon">
+                <i class="fas fa-baseball-ball"></i>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add subtle animation to contact items on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactItems = document.querySelectorAll('.contact-item');
+            contactItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, 300 * index);
+            });
+        });
+    </script>
+</body>
+</html>

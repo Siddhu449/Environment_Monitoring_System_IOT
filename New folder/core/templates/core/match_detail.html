@@ -1,0 +1,38 @@
+<!-- match_detail.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Match Details</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f0f8ff;
+            padding: 20px;
+        }
+        h1 {
+            color: #2a4d69;
+        }
+        .summary {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+        .summary div {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ match.team1 }} vs {{ match.team2 }}</h1>
+    <div class="summary">
+        <div><strong>Toss:</strong> {{ match.toss_winner }} won the toss and chose to {{ match.toss_decision }}</div>
+        <div><strong>Target:</strong> {{ match.target }}</div>
+        <div><strong>{{ match.team1 }}</strong> - {{ match.team1_runs }}/{{ match.team1_wickets }} in {{ match.team1_overs }} overs</div>
+        <div><strong>{{ match.team2 }}</strong> - {{ match.team2_runs }}/{{ match.team2_wickets }} in {{ match.team2_overs }} overs</div>
+        <div><strong>Result:</strong> {{ match.result }}</div>
+    </div>
+    <br>
+    <a href="{% url 'match_history' %}">Back to History</a>
+</body>
+</html>
